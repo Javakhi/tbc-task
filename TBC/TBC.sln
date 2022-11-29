@@ -5,13 +5,19 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TBC", "TBC.csproj", "{6B9DBB74-8161-4A3A-92DC-1DFFA87FE360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TBC.Domain", "..\TBC.Domain\TBC.Domain.csproj", "{A1E4974F-AFAF-4FF1-9347-5A40A4E09BA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TBC.Domain", "..\TBC.Domain\TBC.Domain.csproj", "{A1E4974F-AFAF-4FF1-9347-5A40A4E09BA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TBC.Application", "..\TBC.Application\TBC.Application.csproj", "{76541FFA-4B57-44E6-9B2D-B8A36154948B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TBC.Application", "..\TBC.Application\TBC.Application.csproj", "{76541FFA-4B57-44E6-9B2D-B8A36154948B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TBC.Infrastructure", "..\TBC.Infrastructure\TBC.Infrastructure.csproj", "{48D5C5ED-DF03-4AD7-A926-2DCE081F6087}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TBC.Infrastructure", "..\TBC.Infrastructure\TBC.Infrastructure.csproj", "{48D5C5ED-DF03-4AD7-A926-2DCE081F6087}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TBC.Persistence", "..\TBC.Persistence\TBC.Persistence.csproj", "{FC49CC7D-C864-46F7-896A-65AD58ABCB49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TBC.Persistence", "..\TBC.Persistence\TBC.Persistence.csproj", "{FC49CC7D-C864-46F7-896A-65AD58ABCB49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TBC.API", "..\TBC.API\TBC.API.csproj", "{7789F29D-3AEE-4CF1-8F9D-00DA44E013EF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{48D5C5ED-DF03-4AD7-A926-2DCE081F6087} = {48D5C5ED-DF03-4AD7-A926-2DCE081F6087}
+		{76541FFA-4B57-44E6-9B2D-B8A36154948B} = {76541FFA-4B57-44E6-9B2D-B8A36154948B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,10 @@ Global
 		{FC49CC7D-C864-46F7-896A-65AD58ABCB49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC49CC7D-C864-46F7-896A-65AD58ABCB49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC49CC7D-C864-46F7-896A-65AD58ABCB49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7789F29D-3AEE-4CF1-8F9D-00DA44E013EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7789F29D-3AEE-4CF1-8F9D-00DA44E013EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7789F29D-3AEE-4CF1-8F9D-00DA44E013EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7789F29D-3AEE-4CF1-8F9D-00DA44E013EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

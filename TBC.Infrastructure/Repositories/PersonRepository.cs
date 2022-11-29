@@ -17,9 +17,9 @@ namespace TBC.Infrastructure.Repositories
         public PersonRepository(PersonDbContext dbContext) => _dbContext = dbContext;
 
 
-        public async Task<List<PersonEntity>> GetByPersonByIdAsync(int userId, CancellationToken cancellationToken = default)
+        public async Task<List<PersonEntity?>> GetPersonByIdAsync(int userId, CancellationToken cancellationToken = default)
         {
-            return await _dbContext.Set<PersonEntity>().Where(x => x.Id == userId).ToListAsync(cancellationToken);
+            return (await _dbContext.Set<PersonEntity>().Where(x => x.Id == userId).ToListAsync(cancellationToken))!;
         }
 
         public async Task<PersonEntity> AddPersonAsync(PersonEntity entity, CancellationToken cancellationToken = default)
@@ -38,20 +38,19 @@ namespace TBC.Infrastructure.Repositories
             entity.LastName = person.LastName;
             entity.Gender = person.Gender;
             entity.DateOfBirth = person.DateOfBirth;
-            entity.City = person.City;
-            entity.Number = person.Number;
+            entity.CityId = person.CityId;
+            entity.PersonNumbers = person.PersonNumbers;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
             return entity;
         }
 
-
-        public async Task<PersonEntity> DeletePersonByIdAsync(int id, PersonEntity person, CancellationToken cancellationToken = default)
+        public async Task<PersonEntity > DeletePersonByIdAsync(int personId, CancellationToken cancellationToken = default)
         {
-            var entity = await _dbContext.Set<PersonEntity>().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            var entity = await _dbContext.Set<PersonEntity>().FirstOrDefaultAsync(x => x.Id == personId, cancellationToken);
             if (entity == null) throw new EntityNotFoundException();
 
-            _dbContext.Set<PersonEntity>().Remove(person);
+            _dbContext.Remove(entity);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return entity;
         }

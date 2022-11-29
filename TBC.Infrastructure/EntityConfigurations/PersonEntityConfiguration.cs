@@ -17,8 +17,11 @@ namespace TBC.Infrastructure.EntityConfigurations
             builder.HasIndex(x => x.PersonalNumber).IsUnique();
             builder.HasIndex(x => x.FirstName);
             builder.HasIndex(x => x.LastName);
-            builder.HasOne(x => x.City).WithMany().HasForeignKey(x => x.CityId)
-                .OnDelete(deleteBehavior: DeleteBehavior.SetNull);
+            builder.HasOne(x => x.City).WithMany().HasForeignKey(x => x.CityId);
+               // .OnDelete(deleteBehavior: DeleteBehavior.SetNull);
+
+           // builder.HasMany(x => x.RelatedPerson).WithOne(x=>x.PersonId).HasForeignKey(x=> x.PersonId);
+
         }
     }
 }

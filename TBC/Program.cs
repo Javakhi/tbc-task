@@ -1,8 +1,15 @@
+using System.Reflection;
+using MediatR;
+using TBC.Application;
+using TBC.Application.Queries;
+using TBC.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddInfrastructure();
+builder.Services.AddApplication();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Person}/{action=Index}/{id?}");
 
 app.Run();

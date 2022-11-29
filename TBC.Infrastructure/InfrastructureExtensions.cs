@@ -1,7 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
+using TBC.Application.Queries;
 using TBC.Infrastructure.DbContexts;
+using TBC.Infrastructure.Repositories;
+using TBC.Persistence.Repositories;
 
 namespace TBC.Infrastructure
 {
@@ -12,14 +17,10 @@ namespace TBC.Infrastructure
             var serviceProvider = services.BuildServiceProvider();
             var configuration = serviceProvider.GetRequiredService<IConfiguration>();
 
-
             services.AddDbContext<PersonDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-
-         
-
-
+            services.AddScoped<IPersonRepository, PersonRepository>();
 
             return services;
         }
